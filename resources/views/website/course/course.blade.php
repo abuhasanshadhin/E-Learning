@@ -20,7 +20,7 @@
                         <img src="{{ asset($course->image) }}" class="w-100" alt="">
                     </div>
                     <div class="col-md-7 p-3 text-justify" data-aos="fade-left">
-                        {!! text_short($course->description, 300) !!}
+                        {!! $course->description !!}
                     </div>
                 </div>
                 <div class="accordion" id="accordionExample">
