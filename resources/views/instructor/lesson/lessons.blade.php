@@ -33,8 +33,8 @@
                             <td>{{ $lesson->title }}</td>
                             <td>{{ $lesson->section->title }}</td>
                             <td>{{ $lesson->course->title }}</td>
-                            <td>{{ $lesson->view_count }}</td>
-                            <td>{{ $lesson->like_count }}</td>
+                            <td>{{ $lesson->views->count() }}</td>
+                            <td>{{ $lesson->likes->count() }}</td>
                             <td>
                                 <div class="btn-group">
                                     <a href="{{ route('instructor.edit-lesson', $lesson->id) }}" class="btn btn-sm btn-primary mr-1"> <i class="fa fa-edit"></i> </a>
