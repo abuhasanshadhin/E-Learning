@@ -114,6 +114,13 @@
         </div>
       </li>
 
+      <!-- Nav Item - Contacts -->
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route('admin.contacts') }}">
+          <i class="fas fa-fw fa-envelope"></i>
+          <span>Contacts</span></a>
+      </li>
+
       <!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
@@ -216,7 +223,7 @@
                     <div class="status-indicator bg-success"></div>
                   </div>
                   <div class="font-weight-bold">
-                    <div class="text-truncate">Hi there! I am wondering if you can help me with a problem I've been having.</div>
+                    <div class="text-truncate">Hi there! I am wondering if you can help me with a problem Ive been having.</div>
                     <div class="small text-gray-500">Emily Fowler · 58m</div>
                   </div>
                 </a>

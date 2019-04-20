@@ -10,7 +10,6 @@
 Auth::routes();
 
 Route::name('website.')->namespace('Website')->group(function () {
-
     Route::get('/', 'HomePageController@index')->name('home');
     Route::get('/course/{id}/{title}', 'CoursesController@index')->name('course');
     Route::get('/about', 'AboutPageController@index')->name('about');
@@ -28,7 +27,6 @@ Route::name('website.')->namespace('Website')->group(function () {
         Route::get('/lesson/like/{id}/add', 'LessonsController@addLike')->name('add-like');
         Route::get('/course/{id}/{rating}/rating', 'CoursesController@addRating')->name('rating');
     });
-    
 });
 
 
@@ -36,7 +34,7 @@ Route::name('website.')->namespace('Website')->group(function () {
 
 
 Route::name('user.')->namespace('User')->middleware('auth')->group(function () {
-    Route::get('/profile', 'ProfileController@profile')->name('profile')->middleware('student'); 
+    Route::get('/profile', 'ProfileController@profile')->name('profile')->middleware('student');
     Route::post('/profile/update', 'ProfileController@updateProfile')->name('profile-update');
     Route::get('/password/change', 'ProfileController@changePasswordForm')->name('change-password')->middleware('student');
     Route::post('/password/change', 'ProfileController@changePassword')->name('change-password');
@@ -84,6 +82,10 @@ Route::name('admin.')->prefix('admin')->namespace('Admin')->middleware(['auth', 
     Route::get('/lesson/{id}/edit', 'LessonsController@editLesson')->name('edit-lesson');
     Route::put('/lesson/update', 'LessonsController@updateLesson')->name('update-lesson');
     Route::delete('/lesson/delete', 'LessonsController@deleteLesson')->name('delete-lesson');
+    // Contact Routes
+    Route::get('contacts', 'ContactsController@index')->name('contacts');
+    Route::get('contact/{id}/reply', 'ContactsController@contactMessageReplyForm')->name('contact-reply-form');
+    Route::post('contact/reply', 'ContactsController@contactMessageReply')->name('contact-reply');
 });
 
 
@@ -123,4 +125,3 @@ Route::name('instructor.')->prefix('instructor')->namespace('User')->middleware(
     Route::get('/password/change', 'ProfileController@instructorChangePasswordForm')->name('change-password');
     Route::post('/password/change', 'ProfileController@changePassword')->name('change-password');
 });
-
