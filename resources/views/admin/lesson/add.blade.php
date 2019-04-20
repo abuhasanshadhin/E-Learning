@@ -90,7 +90,15 @@
             });
         });
 
-        CKEDITOR.replace('description');
+        var url = '{{ url('/') }}';
+        var options = {
+            filebrowserImageBrowseUrl: url+'/laravel-filemanager?type=Images',
+            filebrowserImageUploadUrl: url+'/laravel-filemanager/upload?type=Images&_token=',
+            filebrowserBrowseUrl: url+'/laravel-filemanager?type=Files',
+            filebrowserUploadUrl: url+'/laravel-filemanager/upload?type=Files&_token='
+        };
+
+        CKEDITOR.replace('description', options);
         
     </script>
 @endpush
