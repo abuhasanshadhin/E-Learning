@@ -23,11 +23,13 @@ class LessonsController extends Controller
         $is_liked = Like::where('user_id', Auth::id())->where('lesson_id', $id)->first();
 
         $previous = Lesson::where('id', '<', $single_lesson->id)
-                            ->where('section_id', $single_lesson->section->id)->max('id');
+                            ->where('section_id', $single_lesson->section->id)
+                            ->max('id');
         $previous_lesson = Lesson::find($previous);
 
         $next = Lesson::where('id', '>', $single_lesson->id)
-                        ->where('section_id', $single_lesson->section->id)->min('id');
+                        ->where('section_id', $single_lesson->section->id)
+                        ->min('id');
         $next_lesson = Lesson::find($next);
 
         return view('website.lesson.lesson', [
@@ -84,5 +86,4 @@ class LessonsController extends Controller
 
         return redirect()->back();
     }
-
 }
