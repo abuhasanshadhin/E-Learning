@@ -19,12 +19,25 @@ class CoursesController extends Controller
 
     public function addRating($id, $rating)
     {
-        Rating::create([
-            'user_id' => Auth::id(),
-            'course_id' => $id,
-            'rate' => $rating
-        ]);
+        $ifExist = Rating::where('user_id', Auth::id())
+                            ->where('course_id', $id)
+                            ->first();
 
-        return redirect()->back();
+        if ($ifExist) {
+            session()->flash('error', 'Sorry! You already given rating in this course.');
+            return redirect()->back();
+        } else {
+            Rating::create([
+                'user_id' => Auth::id(),
+                'course_id' => $id,
+                'rate' => $rating
+            ]);
+
+            return redirect()->back();
+        }
+
+        
+
+        
     }
 }

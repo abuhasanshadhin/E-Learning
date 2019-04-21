@@ -57,11 +57,7 @@
               @else
                   <li class="nav-item active dropdown">
                       <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                          @if (!empty(Auth::user()->profile->photo))
-                              <img src="{{ asset(Auth::user()->profile->photo) }}" class="rounded-circle" height="30" width="30" alt="...">
-                          @else
-                              {{ Auth::user()->name }}
-                          @endif <span class="caret"></span>
+                          {{ Auth::user()->name }}
                       </a>
 
                       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -189,7 +185,9 @@
     </div>
     <!-- footer end -->
 
-    
+    @if(Session::get('error'))
+        <script>alert('{{ Session::get("error") }}')</script>
+    @endif
 
     <!-- JavaScript -->
     <script type="text/javascript" src="{{ asset('assets') }}/jquery/jquery-3.3.1.js"></script>

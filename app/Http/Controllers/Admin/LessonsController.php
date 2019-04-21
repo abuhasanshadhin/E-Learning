@@ -31,7 +31,7 @@ class LessonsController extends Controller
         $newsletter_emails = NewsLetter::all();
 
         foreach ($newsletter_emails as $email) {
-            Mail::to($email->email)->send(new NewsLetterMail($newLesson));
+            Mail::to($email->email)->queue(new NewsLetterMail($newLesson));
         }
 
         Toastr::success('Lesson Saved Successfully', 'Save');

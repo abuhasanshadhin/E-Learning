@@ -11,7 +11,6 @@ use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Mail;
 use App\NewsLetter;
 use App\Mail\NewsLetterMail;
-use App\Jobs\NewsLetterMail as AppNewsLetterMail;
 
 class LessonsController extends Controller
 {
@@ -34,7 +33,9 @@ class LessonsController extends Controller
 
         $newsletter_emails = NewsLetter::all();
 
-        dispatch(new AppNewsLetterMail($newsletter_emails, $newLesson));
+        foreach ($newsletter_emails as $email) {
+            Mail::to($email->email)->queue(new NewsLetterMail($newLesson));
+        }
 
         Toastr::success('Lesson Saved Successfully', 'Save');
         return redirect()->route('instructor.all-lesson');
