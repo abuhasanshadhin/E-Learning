@@ -14,12 +14,15 @@ class ContactsController extends Controller
     public function index()
     {
         return view('admin.contact.contacts', [
-            'contacts' => Contact::all()
+            'contacts' => Contact::latest()->get()
         ]);
     }
 
     public function contactMessageReplyForm($id)
     {
+        $contact = Contact::find($id);
+        $contact->status = 'seen';
+        $contact->save();
         return view('admin.contact.reply', [
             'contact' => Contact::find($id)
         ]);
@@ -38,5 +41,17 @@ class ContactsController extends Controller
 
         Toastr::success('Reply Send Successfully', 'Message');
         return redirect()->route('admin.contacts');
+    }
+
+    public function contactMessageDelete(Request $request)
+    {
+        Contact::find($request->id)->delete();
+        Toastr::success('Contact Message Deleted Successfully', 'Message');
+        return redirect()->route('admin.contacts');
+    }
+
+    public function pendingContactMessages()
+    {
+        return Contact::where('status', 'pending')->count();
     }
 }

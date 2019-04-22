@@ -67,6 +67,7 @@ Route::name('admin.')->prefix('admin')->namespace('Admin')->middleware(['auth', 
     Route::put('/course/update', 'CoursesController@updateCourse')->name('update-course');
     Route::delete('/course/delete', 'CoursesController@deleteCourse')->name('delete-course');
     Route::get('/course/{id}/approve', 'CoursesController@courseApprove')->name('approve-course');
+    Route::get('/course/pending', 'CoursesController@pendingCourse')->name('pending-course');
     // Section Routes
     Route::get('/section/add', 'SectionsController@addSectionForm')->name('add-section');
     Route::post('/section/save', 'SectionsController@saveSectionInfo')->name('save-section');
@@ -86,6 +87,9 @@ Route::name('admin.')->prefix('admin')->namespace('Admin')->middleware(['auth', 
     Route::get('contacts', 'ContactsController@index')->name('contacts');
     Route::get('contact/{id}/reply', 'ContactsController@contactMessageReplyForm')->name('contact-reply-form');
     Route::post('contact/reply', 'ContactsController@contactMessageReply')->name('contact-reply');
+    Route::delete('contact/delete', 'ContactsController@contactMessageDelete')->name( 'contact-delete');
+    // New contact message warning
+    Route::get('/contact/pending', 'ContactsController@pendingContactMessages')->name('pending-contact');
 });
 
 

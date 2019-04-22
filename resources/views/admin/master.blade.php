@@ -76,7 +76,10 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#course" aria-expanded="true" aria-controls="course">
           <i class="fas fa-fw fa-folder"></i>
-          <span>Course</span>
+          <span>
+            Course  
+            <span class="badge badge-danger" id="pending-courses"></span>
+          </span>
         </a>
         <div id="course" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
@@ -118,7 +121,11 @@
       <li class="nav-item">
         <a class="nav-link" href="{{ route('admin.contacts') }}">
           <i class="fas fa-fw fa-envelope"></i>
-          <span>Contacts</span></a>
+          <span>
+            Contacts 
+            <span class="badge badge-danger" id="pending-contacts"></span> 
+          </span>
+        </a>
       </li>
 
       <!-- Sidebar Toggler (Sidebar) -->
@@ -250,6 +257,34 @@
   {!! Toastr::message() !!}
   
   @stack('js')
+
+  <script>
+
+    setInterval(function(){
+      pendingCourse()
+      pendingContact();
+    }, 500);
+    
+    function pendingContact() {
+      $.ajax({
+        url: "{{ route('admin.pending-contact') }}",
+        method: 'GET',
+        success: function(data) {
+          $('#pending-contacts').html(data);
+        }
+      });
+    }
+    
+    function pendingCourse() {
+      $.ajax({
+        url: "{{ route('admin.pending-course') }}",
+        method: 'GET',
+        success: function(data) {
+          $('#pending-courses').html(data);
+        }
+      });
+    }
+  </script>
 
 </body>
 
