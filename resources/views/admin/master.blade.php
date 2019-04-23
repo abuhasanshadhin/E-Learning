@@ -57,7 +57,7 @@
           <i class="fas fa-fw fa-users"></i>
           <span>
             Users
-            <span class="badge badge-danger" id="pending-users"></span>
+            <span class="badge-danger pl-1 pr-1" id="pending-users"></span>
           </span>
         </a>
       </li>
@@ -82,7 +82,7 @@
           <i class="fas fa-fw fa-folder"></i>
           <span>
             Course  
-            <span class="badge badge-danger" id="pending-courses"></span>
+            <span class="badge-danger pl-1 pr-1" id="pending-courses"></span>
           </span>
         </a>
         <div id="course" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -127,7 +127,7 @@
           <i class="fas fa-fw fa-envelope"></i>
           <span>
             Contacts 
-            <span class="badge badge-danger" id="pending-contacts"></span> 
+            <span class="badge-danger pl-1 pr-1" id="pending-contacts"></span> 
           </span>
         </a>
       </li>
