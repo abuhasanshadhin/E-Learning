@@ -49,4 +49,10 @@ class UsersController extends Controller
         return redirect()->route('admin.users');
     }
 
+    public function pendingUsers()
+    {
+        return User::where('role', 'instructor')
+                    ->where('is_approved', 0)
+                    ->count();
+    }
 }

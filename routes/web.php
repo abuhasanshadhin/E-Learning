@@ -46,6 +46,8 @@ Route::name('admin.')->prefix('admin')->namespace('User')->middleware(['auth', '
     Route::get('/user/{id}/details', 'UsersController@userDetails')->name('user-details');
     Route::delete('/user/delete', 'UsersController@deleteUser')->name('user-delete');
     Route::get('/user/{id}/approve', 'UsersController@userApprove')->name('user-approve');
+    // New contact message warning
+    Route::get('/users/pending', 'UsersController@pendingUsers')->name('pending-users');
 });
 
 // Admin Routes
@@ -87,7 +89,7 @@ Route::name('admin.')->prefix('admin')->namespace('Admin')->middleware(['auth', 
     Route::get('contacts', 'ContactsController@index')->name('contacts');
     Route::get('contact/{id}/reply', 'ContactsController@contactMessageReplyForm')->name('contact-reply-form');
     Route::post('contact/reply', 'ContactsController@contactMessageReply')->name('contact-reply');
-    Route::delete('contact/delete', 'ContactsController@contactMessageDelete')->name( 'contact-delete');
+    Route::delete('contact/delete', 'ContactsController@contactMessageDelete')->name('contact-delete');
     // New contact message warning
     Route::get('/contact/pending', 'ContactsController@pendingContactMessages')->name('pending-contact');
 });

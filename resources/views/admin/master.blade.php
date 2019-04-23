@@ -55,7 +55,11 @@
       <li class="nav-item">
         <a class="nav-link" href="{{ route('admin.users') }}">
           <i class="fas fa-fw fa-users"></i>
-          <span>Users</span></a>
+          <span>
+            Users
+            <span class="badge badge-danger" id="pending-users"></span>
+          </span>
+        </a>
       </li>
       
       <!-- Nav Item - Pages Collapse Menu -->
@@ -263,6 +267,7 @@
     setInterval(function(){
       pendingCourse()
       pendingContact();
+      pendingUsers();
     }, 500);
     
     function pendingContact() {
@@ -281,6 +286,16 @@
         method: 'GET',
         success: function(data) {
           $('#pending-courses').html(data);
+        }
+      });
+    }
+    
+    function pendingUsers() {
+      $.ajax({
+        url: "{{ route('admin.pending-users') }}",
+        method: 'GET',
+        success: function(data) {
+          $('#pending-users').html(data);
         }
       });
     }
