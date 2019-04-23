@@ -99,4 +99,9 @@ class CoursesController extends Controller
         return redirect()->route('admin.all-course');
     }
 
+    public function pendingCourse()
+    {
+        return Course::where('is_approved', 0)->count();
+    }
+
 }
