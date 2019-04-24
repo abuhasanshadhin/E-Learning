@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\User;
 
+use App\User;
+use App\UserProfile;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
-use App\UserProfile;
-use App\User;
 use Brian2694\Toastr\Facades\Toastr;
+use Illuminate\Support\Facades\Auth;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class UsersController extends Controller
 {
@@ -51,8 +52,13 @@ class UsersController extends Controller
 
     public function pendingUsers()
     {
-        return User::where('role', 'instructor')
-                    ->where('is_approved', 0)
-                    ->count();
+        return User::where('role', 'instructor')->where('is_approved', 0)->count();
+    }
+
+    public function usersPrintToPDF()
+    {
+        $users = User::where('role', '!=', 'admin')->latest()->get();
+        $pdf = PDF::loadView('admin.user.users-print', ['users' => $users]);
+        return $pdf->stream();
     }
 }

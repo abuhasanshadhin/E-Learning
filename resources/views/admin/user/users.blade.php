@@ -67,4 +67,8 @@
 </div>
 </div>
 
+<p class="text-center">
+    <a href="{{ route('admin.users-print') }}" class="btn btn-info">Print</a>
+</p>
+
 @endsection

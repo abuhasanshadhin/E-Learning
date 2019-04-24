@@ -46,6 +46,7 @@ Route::name('admin.')->prefix('admin')->namespace('User')->middleware(['auth', '
     Route::get('/user/{id}/details', 'UsersController@userDetails')->name('user-details');
     Route::delete('/user/delete', 'UsersController@deleteUser')->name('user-delete');
     Route::get('/user/{id}/approve', 'UsersController@userApprove')->name('user-approve');
+    Route::get('users/print', 'UsersController@usersPrintToPDF')->name('users-print');
     // New contact message warning
     Route::get('/users/pending', 'UsersController@pendingUsers')->name('pending-users');
 });
