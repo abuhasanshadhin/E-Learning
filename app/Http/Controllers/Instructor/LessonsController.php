@@ -10,10 +10,7 @@ use App\Lesson;
 use Brian2694\Toastr\Facades\Toastr;
 use App\NewsLetter;
 use App\Mail\NewsLetterMail;
-<<<<<<< HEAD
 use Illuminate\Support\Facades\Mail;
-=======
->>>>>>> 0d955b3719cd5c84ea471cab17c2c39976c82893
 
 class LessonsController extends Controller
 {
