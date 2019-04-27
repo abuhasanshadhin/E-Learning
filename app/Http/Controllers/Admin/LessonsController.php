@@ -8,6 +8,7 @@ use App\Course;
 use App\Lesson;
 use Illuminate\Support\Facades\Auth;
 use Brian2694\Toastr\Facades\Toastr;
+use App\NewsLetter;
 
 class LessonsController extends Controller
 {
@@ -81,5 +82,4 @@ class LessonsController extends Controller
             'video_url' => 'required',
         ]);
     }
-
 }
