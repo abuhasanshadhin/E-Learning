@@ -3849,6 +3849,7 @@ return array(
     'UniSharp\\LaravelFilemanager\\Middlewares\\CreateDefaultFolder' => $vendorDir . '/unisharp/laravel-filemanager/src/Middlewares/CreateDefaultFolder.php',
     'UniSharp\\LaravelFilemanager\\Middlewares\\MultiUser' => $vendorDir . '/unisharp/laravel-filemanager/src/Middlewares/MultiUser.php',
     'UniSharp\\LaravelFilemanager\\Traits\\LfmHelpers' => $vendorDir . '/unisharp/laravel-filemanager/src/Traits/LfmHelpers.php',
+    'UsersTableSeeder' => $baseDir . '/database/seeds/UsersTableSeeder.php',
     'Webmozart\\Assert\\Assert' => $vendorDir . '/webmozart/assert/src/Assert.php',
     'Whoops\\Exception\\ErrorException' => $vendorDir . '/filp/whoops/src/Whoops/Exception/ErrorException.php',
     'Whoops\\Exception\\Formatter' => $vendorDir . '/filp/whoops/src/Whoops/Exception/Formatter.php',
