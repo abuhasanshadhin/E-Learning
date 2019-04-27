@@ -5,7 +5,7 @@
 @section('content')
 
     <!-- home page header with login form -->
-    <div class="home-header mb-4" data-aos="zoom-in">
+    <div class="home-header mb-4">
 
         <h1 data-aos="fade-right">Get The Best Free Online Courses</h1>
 
@@ -59,8 +59,8 @@
     <!-- courses cards -->
     <div class="container">
 
-      <h1 class="title-lg" data-aos="zoom-in">Featured Courses</h1>
-      <p class="text-center text-muted col-md-8 offset-md-2" data-aos="zoom-in">
+      <h1 class="title-lg">Featured Courses</h1>
+      <p class="text-center text-muted col-md-8 offset-md-2">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
         Itaque eos numquam distinctio asperiores odit aut voluptatem!
         Numquam magni fugiat harum natus vitae sint in perferendis illum accusamus expedita quis, 
